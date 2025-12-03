@@ -74,7 +74,7 @@ export default function ChatPage() {
     setValue("");
     setTag(false);
     try {
-      const res = await fetch("/api/process", {
+      const res = await fetch("/api/v1/process", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: messageToSend }),
