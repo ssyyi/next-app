@@ -75,7 +75,7 @@ export default function ChatPage() {
     setTag(false);
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_POSTGRES_URL}/v1/process`,
+        `${process.env.NEXT_PUBLIC_POSTGRES_URL}/api/v1/process`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -169,7 +169,7 @@ export default function ChatPage() {
                 </div>
               ) : (
                 <div className="flex items-start gap-2 max-w-[70%] relative group cursor-pointer">
-                  <Bot className="mt-1"/>
+                  <Bot className="mt-1" />
                   <div className="flex-1 bg-card border border-border rounded-xl px-3 py-2 break-words overflow-hidden">
                     <div className="cursor-text"> {text}</div>
                   </div>
@@ -201,7 +201,7 @@ export default function ChatPage() {
             className="h-[90px]"
             readOnly={loading}
           />
-          <InputGroupAddon align="block-end" className="w-[30px]">
+          <InputGroupAddon align="block-end" className="w-[40px]">
             <Tooltip>
               <TooltipTrigger asChild>
                 <div>
