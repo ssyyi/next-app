@@ -74,11 +74,14 @@ export default function ChatPage() {
     setValue("");
     setTag(false);
     try {
-      const res = await fetch("/api/v1/process", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: messageToSend }),
-      }).then((r) => r.json());
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_POSTGRES_URL}/api/v1/process`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: messageToSend }),
+        }
+      ).then((r) => r.json());
       const botMsg: Message = {
         id: (Date.now() + 1).toString(),
         role: "bot",
